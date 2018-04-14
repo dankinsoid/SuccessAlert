@@ -10,6 +10,14 @@
 		831C5FFB208203FE00F20089 /* SuccessAlert.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 831C5FF1208203FD00F20089 /* SuccessAlert.framework */; };
 		831C6000208203FE00F20089 /* SuccessAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C5FFF208203FE00F20089 /* SuccessAlertTests.swift */; };
 		831C6002208203FE00F20089 /* SuccessAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = 831C5FF4208203FD00F20089 /* SuccessAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		831C600F2082042400F20089 /* UIWindow_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C600E2082042400F20089 /* UIWindow_Extension.swift */; };
+		831C60112082046700F20089 /* SuccessAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 831C60102082046700F20089 /* SuccessAlert.swift */; };
+		831C603D208211AB00F20089 /* SuccessAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = 831C600C2082040700F20089 /* SuccessAlert.xib */; };
+		8322EBAE208219E2006E4EA8 /* CheckMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBAD208219E2006E4EA8 /* CheckMarkView.swift */; };
+		8322EBB020821A08006E4EA8 /* AnimatedViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBAF20821A08006E4EA8 /* AnimatedViewProtocol.swift */; };
+		8322EBB220821D6F006E4EA8 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBB120821D6F006E4EA8 /* UIImageView_Extension.swift */; };
+		8322EBBB2082314B006E4EA8 /* BezierAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */; };
+		8322EBBD20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBBC20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +37,14 @@
 		831C5FFA208203FD00F20089 /* SuccessAlertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SuccessAlertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		831C5FFF208203FE00F20089 /* SuccessAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertTests.swift; sourceTree = "<group>"; };
 		831C6001208203FE00F20089 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		831C600C2082040700F20089 /* SuccessAlert.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessAlert.xib; sourceTree = "<group>"; };
+		831C600E2082042400F20089 /* UIWindow_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow_Extension.swift; sourceTree = "<group>"; };
+		831C60102082046700F20089 /* SuccessAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlert.swift; sourceTree = "<group>"; };
+		8322EBAD208219E2006E4EA8 /* CheckMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckMarkView.swift; sourceTree = "<group>"; };
+		8322EBAF20821A08006E4EA8 /* AnimatedViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedViewProtocol.swift; sourceTree = "<group>"; };
+		8322EBB120821D6F006E4EA8 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
+		8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierAnimatedView.swift; sourceTree = "<group>"; };
+		8322EBBC20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint_Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +87,14 @@
 		831C5FF3208203FD00F20089 /* SuccessAlert */ = {
 			isa = PBXGroup;
 			children = (
+				831C600E2082042400F20089 /* UIWindow_Extension.swift */,
+				8322EBB120821D6F006E4EA8 /* UIImageView_Extension.swift */,
+				8322EBBC20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift */,
+				831C60102082046700F20089 /* SuccessAlert.swift */,
+				8322EBAD208219E2006E4EA8 /* CheckMarkView.swift */,
+				8322EBAF20821A08006E4EA8 /* AnimatedViewProtocol.swift */,
+				8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */,
+				831C600C2082040700F20089 /* SuccessAlert.xib */,
 				831C5FF4208203FD00F20089 /* SuccessAlert.h */,
 				831C5FF5208203FD00F20089 /* Info.plist */,
 			);
@@ -148,6 +172,7 @@
 				TargetAttributes = {
 					831C5FF0208203FD00F20089 = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					831C5FF9208203FD00F20089 = {
@@ -179,6 +204,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				831C603D208211AB00F20089 /* SuccessAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +222,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8322EBAE208219E2006E4EA8 /* CheckMarkView.swift in Sources */,
+				8322EBB020821A08006E4EA8 /* AnimatedViewProtocol.swift in Sources */,
+				8322EBBD20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift in Sources */,
+				8322EBBB2082314B006E4EA8 /* BezierAnimatedView.swift in Sources */,
+				831C60112082046700F20089 /* SuccessAlert.swift in Sources */,
+				8322EBB220821D6F006E4EA8 /* UIImageView_Extension.swift in Sources */,
+				831C600F2082042400F20089 /* UIWindow_Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +367,7 @@
 		831C6006208203FE00F20089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -343,10 +377,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SuccessAlert/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Voidilov.SuccessAlert;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +391,7 @@
 		831C6007208203FE00F20089 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -364,6 +401,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = SuccessAlert/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Voidilov.SuccessAlert;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -376,6 +414,7 @@
 		831C6009208203FE00F20089 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733T56UZW;
 				INFOPLIST_FILE = SuccessAlertTests/Info.plist;
@@ -390,6 +429,7 @@
 		831C600A208203FE00F20089 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4733T56UZW;
 				INFOPLIST_FILE = SuccessAlertTests/Info.plist;
