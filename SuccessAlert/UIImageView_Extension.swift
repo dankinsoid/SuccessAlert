@@ -18,4 +18,9 @@ extension UIImageView: AnimatedViewProtocol {
             return self.tintColor
         }
     }
+    
+    convenience public init(image: UIImage?, rendering: UIImageRenderingMode) {
+        self.init(image: image?.withRenderingMode(rendering))
+    }
+    
 }
