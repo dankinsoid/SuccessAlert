@@ -15,7 +15,7 @@ public protocol AnimatedViewProtocol: class where Self: UIView {
 
 extension AnimatedViewProtocol {
     
-    public func drawAnimation(_ block: (() -> ())?) {
+    public func drawAnimation(_ block: (() -> ())? = nil) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: {
             block?()
         })
