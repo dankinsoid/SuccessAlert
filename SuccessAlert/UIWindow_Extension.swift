@@ -13,6 +13,11 @@ extension UIWindow {
     open func showSuccessAlert(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
         let view = SuccessAlert(frame: bounds, title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
         endEditing(true)
+        for subview in subviews {
+            if subview as? SuccessAlert != nil {
+                subview.removeFromSuperview()
+            }
+        }
         addSubview(view)
         appearingAnimation(view, completion: completion)
     }
@@ -46,11 +51,10 @@ extension UIWindow {
         UIView.animate(withDuration: 0.3, delay: 0.4, options: [], animations: {
             view.checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
             view.checkMarkView.alpha = 0
+            view.isUserInteractionEnabled = false
         }) { (_) in
-            completion?()
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.701) {
             view.removeFromSuperview()
+            completion?()
         }
     }
 }
