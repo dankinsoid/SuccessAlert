@@ -18,6 +18,7 @@
 		8322EBB220821D6F006E4EA8 /* UIImageView_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBB120821D6F006E4EA8 /* UIImageView_Extension.swift */; };
 		8322EBBB2082314B006E4EA8 /* BezierAnimatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */; };
 		8322EBBD20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8322EBBC20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift */; };
+		A52EE9342084822D00CE7679 /* CrossView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52EE9332084822D00CE7679 /* CrossView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		8322EBB120821D6F006E4EA8 /* UIImageView_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView_Extension.swift; sourceTree = "<group>"; };
 		8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierAnimatedView.swift; sourceTree = "<group>"; };
 		8322EBBC20827EBC006E4EA8 /* NSLayoutConstraint_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint_Extension.swift; sourceTree = "<group>"; };
+		A52EE9332084822D00CE7679 /* CrossView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				8322EBAD208219E2006E4EA8 /* CheckMarkView.swift */,
 				8322EBAF20821A08006E4EA8 /* AnimatedViewProtocol.swift */,
 				8322EBBA2082314B006E4EA8 /* BezierAnimatedView.swift */,
+				A52EE9332084822D00CE7679 /* CrossView.swift */,
 				831C600C2082040700F20089 /* SuccessAlert.xib */,
 				831C5FF4208203FD00F20089 /* SuccessAlert.h */,
 				831C5FF5208203FD00F20089 /* Info.plist */,
@@ -229,6 +232,7 @@
 				831C60112082046700F20089 /* SuccessAlert.swift in Sources */,
 				8322EBB220821D6F006E4EA8 /* UIImageView_Extension.swift in Sources */,
 				831C600F2082042400F20089 /* UIWindow_Extension.swift in Sources */,
+				A52EE9342084822D00CE7679 /* CrossView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
