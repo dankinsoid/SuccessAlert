@@ -47,8 +47,10 @@ extension UIWindow {
             view.checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
             view.checkMarkView.alpha = 0
         }) { (_) in
-            view.removeFromSuperview()
             completion?()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.701) {
+            view.removeFromSuperview()
         }
     }
 }
