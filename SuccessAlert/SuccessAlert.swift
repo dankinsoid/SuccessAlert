@@ -8,28 +8,28 @@
 
 import UIKit
 
-class SuccessAlert: UIView {
+open class SuccessAlert: UIView {
     
     @IBOutlet private var contentView: UIView!
-    @IBOutlet var checkMarkView: UIView!
-    @IBOutlet var visualEffectView: UIVisualEffectView!
-    @IBOutlet var textLabel: UILabel!
-    @IBOutlet var detailLabel: UILabel!
+    @IBOutlet open var checkMarkView: UIView!
+    @IBOutlet open var visualEffectView: UIVisualEffectView!
+    @IBOutlet open var textLabel: UILabel!
+    @IBOutlet open var detailLabel: UILabel!
     @IBOutlet private var drawView: UIView!
-    @IBOutlet var stackView: UIStackView!
+    @IBOutlet open var stackView: UIStackView!
     @IBOutlet private var checkWidth: NSLayoutConstraint!
     
-    override init(frame: CGRect) {
+    override public init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
     }
     
-    init(frame: CGRect, title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight) {
+    public init(frame: CGRect, title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight) {
         super.init(frame: frame)
         xibSetup(title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         xibSetup()
     }
@@ -54,10 +54,53 @@ class SuccessAlert: UIView {
         (drawView as? AnimatedViewProtocol)?.color = color
     }
     
-    func drawAnimate(_ block: (() -> ())? = nil) {
+    open func drawAnimate(_ block: (() -> ())? = nil) {
         if let dv = drawView as? AnimatedViewProtocol {
             dv.drawAnimation(block)
         }
     }
+}
+
+extension SuccessAlert {
     
+    static open func show(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+        let window = UIApplication.shared.keyWindow ?? UIWindow()
+        let view = SuccessAlert(frame: window.bounds, title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
+        window.endEditing(true)
+        for subview in window.subviews {
+            if subview as? SuccessAlert != nil {
+                subview.removeFromSuperview()
+            }
+        }
+        window.addSubview(view)
+        view.appearingAnimation(completion: completion)
+    }
+    
+    static open func show(title: String = "Выполнено", message: String? = nil, image: UIImage, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+        SuccessAlert.show(title: title, message: message, view: UIImageView(image: image.withRenderingMode(.alwaysTemplate)), color: color, textColor: textColor, blur: blur, completion: completion)
+    }
+    
+    fileprivate func appearingAnimation(completion: (() -> ())? = nil) {
+        checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+        checkMarkView.alpha = 0
+        UIView.animate(withDuration: 0.3, animations: {
+            self.checkMarkView.alpha = 1
+            self.checkMarkView.transform = CGAffineTransform(scaleX: 1, y: 1)
+        }) { (_) in
+            self.drawAnimate({
+                self.disappearingAnimation(completion: completion)
+            })
+        }
+    }
+    
+    fileprivate func disappearingAnimation(completion: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.3, delay: 0.4, options: [], animations: {
+            self.checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
+            self.checkMarkView.alpha = 0
+            self.isUserInteractionEnabled = false
+        }) { (_) in
+            self.removeFromSuperview()
+            completion?()
+        }
+    }
 }
