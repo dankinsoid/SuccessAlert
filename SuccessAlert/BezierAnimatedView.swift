@@ -22,7 +22,7 @@ open class BezierAnimatedView: UIView, AnimatedViewProtocol {
         super.init(frame: frame)
     }
     
-    public init(ratio: CGSize, lineWidth: CGFloat = 9, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), bezier: ((BezierAnimatedView) -> UIBezierPath)? = nil) {
+    public init(aspectRatio: CGSize, lineWidth: CGFloat = 9, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), bezier: ((BezierAnimatedView) -> UIBezierPath)? = nil) {
         super.init(frame: CGRect(origin: .zero, size: ratio))
         self.bezierBlock = bezier
         self.color = color

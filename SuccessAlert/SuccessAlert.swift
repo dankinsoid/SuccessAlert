@@ -63,7 +63,7 @@ open class SuccessAlert: UIView {
 
 extension SuccessAlert {
     
-    static open func show(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
         let window = UIApplication.shared.keyWindow ?? UIWindow()
         let view = SuccessAlert(frame: window.bounds, title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
         window.endEditing(true)
@@ -73,14 +73,14 @@ extension SuccessAlert {
             }
         }
         window.addSubview(view)
-        view.appearingAnimation(completion: completion)
+        view.appearingAnimation(delay: delay, completion: completion)
     }
     
-    static open func show(title: String = "Выполнено", message: String? = nil, image: UIImage, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
-        SuccessAlert.show(title: title, message: message, view: UIImageView(image: image.withRenderingMode(.alwaysTemplate)), color: color, textColor: textColor, blur: blur, completion: completion)
+    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, image: UIImage, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+        SuccessAlert.show(title: title, message: message, delay: delay, view: UIImageView(image: image.withRenderingMode(.alwaysTemplate)), color: color, textColor: textColor, blur: blur, completion: completion)
     }
     
-    fileprivate func appearingAnimation(completion: (() -> ())? = nil) {
+    fileprivate func appearingAnimation(delay: Double, completion: (() -> ())? = nil) {
         checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
         checkMarkView.alpha = 0
         UIView.animate(withDuration: 0.3, animations: {
@@ -88,16 +88,15 @@ extension SuccessAlert {
             self.checkMarkView.transform = CGAffineTransform(scaleX: 1, y: 1)
         }) { (_) in
             self.drawAnimate({
-                self.disappearingAnimation(completion: completion)
+                self.disappearingAnimation(delay: delay, completion: completion)
             })
         }
     }
     
-    fileprivate func disappearingAnimation(completion: (() -> ())? = nil) {
-        UIView.animate(withDuration: 0.3, delay: 0.4, options: [], animations: {
+    fileprivate func disappearingAnimation(delay: Double, completion: (() -> ())? = nil) {
+        UIView.animate(withDuration: 0.3, delay: delay, options: [], animations: {
             self.checkMarkView.transform = CGAffineTransform(scaleX: 0.00001, y: 0.00001)
             self.checkMarkView.alpha = 0
-            self.isUserInteractionEnabled = false
         }) { (_) in
             self.removeFromSuperview()
             completion?()
