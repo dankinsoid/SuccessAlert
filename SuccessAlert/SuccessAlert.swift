@@ -34,7 +34,7 @@ open class SuccessAlert: UIView {
         xibSetup()
     }
 
-    func xibSetup(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor = nil?, blur: UIBlurEffectStyle? = nil) {
+    func xibSetup(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil) {
         Bundle(for: type(of: self)).loadNibNamed("SuccessAlert", owner: self, options: nil)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
