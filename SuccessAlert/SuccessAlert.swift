@@ -24,7 +24,7 @@ open class SuccessAlert: UIView {
         xibSetup()
     }
     
-    public init(frame: CGRect, title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight) {
+    public init(frame: CGRect, title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil) {
         super.init(frame: frame)
         xibSetup(title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
     }
@@ -34,24 +34,27 @@ open class SuccessAlert: UIView {
         xibSetup()
     }
 
-    func xibSetup(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight) {
+    func xibSetup(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor = nil?, blur: UIBlurEffectStyle? = nil) {
         Bundle(for: type(of: self)).loadNibNamed("SuccessAlert", owner: self, options: nil)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(contentView)
-        visualEffectView.effect = UIBlurEffect(style: blur)
+        if let be = blur {
+            visualEffectView.effect = UIBlurEffect(style: be)
+        }
         checkMarkView.layer.cornerRadius = 12
         textLabel.text = title
-        textLabel.textColor = textColor
+        textLabel.textColor = textColor ?? textLabel.textColor
         detailLabel.text = message
-        detailLabel.textColor = textColor
+        detailLabel.textColor = textColor ?? detailLabel.textColor
         if let view = view {
             NSLayoutConstraint(aspectRatio: view.frame.size, item: view).isActive = true
             stackView.removeArrangedSubview(drawView)
             stackView.addArrangedSubview(view)
             drawView = view
         }
-        (drawView as? AnimatedViewProtocol)?.color = color
+        let drawAV = drawView as? AnimatedViewProtocol
+        drawAV?.color = color ?? drawAV!.color
     }
     
     open func drawAnimate(_ block: (() -> ())? = nil) {
@@ -63,7 +66,7 @@ open class SuccessAlert: UIView {
 
 extension SuccessAlert {
     
-    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, view: AnimatedView? = nil, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil, completion: (() -> ())? = nil) {
         let window = UIApplication.shared.keyWindow ?? UIWindow()
         let view = SuccessAlert(frame: window.bounds, title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
         window.endEditing(true)
@@ -76,7 +79,7 @@ extension SuccessAlert {
         view.appearingAnimation(delay: delay, completion: completion)
     }
     
-    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, image: UIImage, color: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), textColor: UIColor = #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), blur: UIBlurEffectStyle = .extraLight, completion: (() -> ())? = nil) {
+    static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, image: UIImage, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil, completion: (() -> ())? = nil) {
         SuccessAlert.show(title: title, message: message, delay: delay, view: UIImageView(image: image.withRenderingMode(.alwaysTemplate)), color: color, textColor: textColor, blur: blur, completion: completion)
     }
     
