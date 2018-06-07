@@ -9,6 +9,7 @@
 import UIKit
 
 open class CheckMarkView: BezierAnimatedView {
+    
     open override var bezier: UIBezierPath {
         let path = UIBezierPath()
         let halfWidth = lineWidth / 2
@@ -18,5 +19,12 @@ open class CheckMarkView: BezierAnimatedView {
         return path
     }
     
+    public init() {
+        super.init(aspectRatio: CGSize(width: 204, height: 135), lineWidth: 12, color: #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1), bezier: nil)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
 }
-
