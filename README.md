@@ -8,26 +8,19 @@ To show the alert use:
 ```swift
 SuccessAlert.show(title: String, message: String?, delay: Double, view: AnimatedView?, color: UIColor?, textColor: UIColor?, blur: UIBlurEffectStyle?, completion: (() -> ())?)
 ```
-or this: 
+or 
 ```swift
 SuccessAlert.show(title: String, message: String?, delay: Double, image: UIImage, color: UIColor?, textColor: UIColor?, blur: UIBlurEffectStyle?, completion: (() -> ())?)
 ```
 where:
-title - alert title, "Выполнено" by default;
-
-message - alert message, empty by default;
-
-delay - alert display duration in seconds, 0.4 by default;
-
-view - alert icon, CheckView() by default;
-
-image - alert icon with image, an image is represented with "alwaysTemplate" rendering mode;
-
-color - icon color, icon view tintColor by default;
-
-textColor - title and message color, 28% in grayscale by default;
-
-blur - alert blur effect style, extraLight by default;
+* title - alert title, "Выполнено" by default;
+* message - alert message, empty by default;
+* delay - alert display duration in seconds, 0.4 by default;
+* view - alert icon, CheckView() by default;
+* image - alert icon with image, an image is represented with "alwaysTemplate" rendering mode;
+* color - icon color, icon view tintColor by default;
+* textColor - title and message color, 28% in grayscale by default;
+* blur - alert blur effect style, extraLight by default;
 
 AnimatedView is typealias: 
 ```swift
@@ -38,6 +31,7 @@ AnimatedViewProtocol - protocol for views that can be animated;
 ### Here's an example
 #### In Action
 <img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif">
+
 #### Code
 
 ```swift
