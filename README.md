@@ -31,7 +31,7 @@ public typealias AnimatedView = AnimatedViewProtocol & UIView
 ### Here's an example
 #### In Action
 <div style="height:300pt">
-<img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif">
+<img src="https://psv4.userapi.com/c848136/u73750576/docs/d12/2ae39bfdc481/IMG_9444_TRIM.gif?extra=auhHYZPO_okWhCm_eBB3avmjSvNXhahub9Vv-sEyL-jCzKiDAke02Y6_d76CtkEPnxeUyElSD_Lwj-edXu4oecB9NC96vFKZKnIHA3WDZbuPudL-_OM0Qx9VnD4pqpj0jr_wu6wEGg">
 <div>
 
 #### Code
@@ -45,7 +45,7 @@ public typealias AnimatedView = AnimatedViewProtocol & UIView
  6: SuccessAlert.show(title: "Удалить не удалось!", view: CrossView())
  7: SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: AppColor.gray) {
               self.navigationController?.popToRootViewController(animated: true)
-            }
+    }
 ```
 
 Also there is a `BezierAnimatedView` class for creating animated views with `UIBezierPath`. You can initialize this class with `UIBezierPath`, or create a subclass and override `var bezier: UIBezierPath`.
