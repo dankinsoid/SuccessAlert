@@ -58,7 +58,7 @@ Open SuccessAlert.xcworkspace, choose `RxExample` and hit run. This method will 
 Add this to `Cartfile`
 
 ```
-github "SuccessAlert" "master"
+git "https://github.com/dankinsoid/SuccessAlert.git" "master"
 ```
 
 ```bash
