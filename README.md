@@ -13,7 +13,7 @@ or this:
 SuccessAlert.show(title: String, message: String?, delay: Double, image: UIImage, color: UIColor?, textColor: UIColor?, blur: UIBlurEffectStyle?, completion: (() -> ())?)
 ```
 where:
-title - alert title, "Выполнено" by default;
+title - alert title, "Выполнено" by default;\n
 message - alert message, empty by default;
 delay - alert display duration in seconds, 0.4 by default;
 view - alert icon, CheckView() by default;
@@ -59,7 +59,7 @@ These are currently the supported options:
 
 ### Manual
 
-* Drag `Rx.xcodeproj` into Project Navigator
+* Drag `SuccessAlert.xcodeproj` into Project Navigator
 * Go to `Project > Targets > General > Embedded Binaries`, click `+` and select `SuccessAlert` target
 
 ### [Carthage](https://github.com/Carthage/Carthage)
