@@ -28,13 +28,11 @@ public typealias AnimatedView = AnimatedViewProtocol & UIView
 ```
 AnimatedViewProtocol - protocol for views that can be animated;
 
-<table>
-  <tr>
-    <th width="30%">Here's an example</th>
-    <th width="30%">In Action</th>
-  </tr>
-  <tr>
-    <td>
+### Here's an example
+#### In Action
+<img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif">
+#### Code
+```swift
         1: SuccessAlert.show(title: "Добавлено")
         2: SuccessAlert.show(message: "Запись успешно добавлена")
         3: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: .white, textColor: .white, blur: .dark)
@@ -44,10 +42,7 @@ AnimatedViewProtocol - protocol for views that can be animated;
         7: SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1)) {
               self.navigationController?.popToRootViewController(animated: true)
             }
-      </td>
-    <td rowspan="9"><img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif"></td>
-  </tr>
-</table>
+```
 
 Also there is a BezierAnimatedView class for creating animated views with UIBezierPath. You can initialize this class with UIBezierPath, or create a subclass and override "var bezier: UIBezierPath".
 
