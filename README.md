@@ -16,37 +16,39 @@ where:
 * title - alert title, "Выполнено" by default;
 * message - alert message, empty by default;
 * delay - alert display duration in seconds, 0.4 by default;
-* view - alert icon, CheckView() by default;
-* image - alert icon with image, an image is represented with "alwaysTemplate" rendering mode;
-* color - icon color, icon view tintColor by default;
+* view - alert icon, `CheckView()` by default;
+* image - alert icon with image, an image is represented with `alwaysTemplate` rendering mode;
+* color - icon color, icon view `tintColor` by default;
 * textColor - title and message color, 28% in grayscale by default;
-* `swift blur` - alert blur effect style, extraLight by default;
+* blur - alert blur effect style, extraLight by default;
 
-AnimatedView is typealias: 
+`AnimatedView` is typealias: 
 ```swift
 public typealias AnimatedView = AnimatedViewProtocol & UIView
 ```
-AnimatedViewProtocol - protocol for views that can be animated;
+`AnimatedViewProtocol` - protocol for views that can be animated;
 
 ### Here's an example
 #### In Action
+<div style="height:300pt">
 <img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif">
+<div>
 
 #### Code
 
 ```swift
-        1: SuccessAlert.show(title: "Добавлено")
-        2: SuccessAlert.show(message: "Запись успешно добавлена")
-        3: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: .white, textColor: .white, blur: .dark)
-        4: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: #colorLiteral(red: 0, green: 0.8379185268, blue: 0.3353787327, alpha: 1), textColor: #colorLiteral(red: 0, green: 0.8379185268, blue: 0.3353787327, alpha: 1))
-        5: SuccessAlert.show()
-        6: SuccessAlert.show(title: "Удалить не удалось!", view: CrossView())
-        7: SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1)) {
+ 1: SuccessAlert.show(title: "Добавлено")
+ 2: SuccessAlert.show(message: "Запись успешно добавлена")
+ 3: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: .white, textColor: .white, blur: .dark)
+ 4: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: AppColor.green, textColor: AppColor.green)
+ 5: SuccessAlert.show()
+ 6: SuccessAlert.show(title: "Удалить не удалось!", view: CrossView())
+ 7: SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: AppColor.gray) {
               self.navigationController?.popToRootViewController(animated: true)
             }
 ```
 
-Also there is a BezierAnimatedView class for creating animated views with UIBezierPath. You can initialize this class with UIBezierPath, or create a subclass and override "var bezier: UIBezierPath".
+Also there is a `BezierAnimatedView` class for creating animated views with `UIBezierPath`. You can initialize this class with `UIBezierPath`, or create a subclass and override `var bezier: UIBezierPath`.
 
 ## Installation
 
