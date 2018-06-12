@@ -34,9 +34,7 @@ AnimatedViewProtocol - protocol for views that can be animated;
     <th width="30%">In Action</th>
   </tr>
   <tr>
-    <th rowspan="9"><img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif"></th>
-  </tr>
-  <tr>
+    <td>
         1: SuccessAlert.show(title: "Добавлено")
         2: SuccessAlert.show(message: "Запись успешно добавлена")
         3: SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: .white, textColor: .white, blur: .dark)
@@ -46,6 +44,8 @@ AnimatedViewProtocol - protocol for views that can be animated;
         7: SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1)) {
               self.navigationController?.popToRootViewController(animated: true)
             }
+      </td>
+    <td rowspan="9"><img src="https://preview.ibb.co/gQZied/IMG_9444_TRIM.gif"></td>
   </tr>
 </table>
 
