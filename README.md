@@ -31,7 +31,7 @@ public typealias AnimatedView = AnimatedViewProtocol & UIView
 ### Here's an example
 #### In Action
 <div style="height:300pt">
-<img src="https://psv4.userapi.com/c848136/u73750576/docs/d12/2ae39bfdc481/IMG_9444_TRIM.gif">
+<img src="https://i.imgur.com/J9FI8bl.mp4">
 <div>
 
 #### Code
