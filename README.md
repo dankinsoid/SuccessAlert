@@ -20,7 +20,7 @@ where:
 * image - alert icon with image, an image is represented with "alwaysTemplate" rendering mode;
 * color - icon color, icon view tintColor by default;
 * textColor - title and message color, 28% in grayscale by default;
-* blur - alert blur effect style, extraLight by default;
+* `swift blur` - alert blur effect style, extraLight by default;
 
 AnimatedView is typealias: 
 ```swift
