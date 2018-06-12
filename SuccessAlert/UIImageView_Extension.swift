@@ -8,14 +8,4 @@
 
 import UIKit
 
-extension UIImageView: AnimatedViewProtocol {
-    
-    public var color: UIColor {
-        set {
-            self.tintColor = newValue
-        }
-        get {
-            return self.tintColor
-        }
-    }
-}
+extension UIImageView: AnimatedViewProtocol {}

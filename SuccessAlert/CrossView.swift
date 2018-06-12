@@ -22,7 +22,7 @@ open class CrossView: BezierAnimatedView {
     public override init(aspectRatio: CGSize = CGSize(width: 500, height: 500), lineWidth: CGFloat = 10, color: UIColor = #colorLiteral(red: 0.5725490451, green: 0, blue: 0.2313725501, alpha: 1), bezier: ((BezierAnimatedView) -> UIBezierPath)? = nil) {
         super.init(frame: CGRect(origin: .zero, size: aspectRatio))
         self.bezierBlock = bezier
-        self.color = color
+        self.tintColor = color
         self.lineWidth = lineWidth
     }
     

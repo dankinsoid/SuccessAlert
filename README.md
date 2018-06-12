@@ -12,31 +12,26 @@
     <th rowspan="9"><img src="https://raw.githubusercontent.com/kzaher/rxswiftcontent/master/GithubSearch.gif"></th>
   </tr>
   <tr>
-    <td><div class="highlight highlight-source-swift"><pre>
-let searchResults = searchBar.rx.text.orEmpty
-    .throttle(0.3, scheduler: MainScheduler.instance)
-    .distinctUntilChanged()
-    .flatMapLatest { query -> Observable&lt;[Repository]&gt; in
-        if query.isEmpty {
-            return .just([])
-        }
-        return searchGitHub(query)
-            .catchErrorJustReturn([])
-    }
-    .observeOn(MainScheduler.instance)</pre></div></td>
-  </tr>
-  <tr>
-    <td>... then bind the results to your tableview</td>
-  </tr>
-  <tr>
-    <td width="30%"><div class="highlight highlight-source-swift"><pre>
-searchResults
-    .bind(to: tableView.rx.items(cellIdentifier: "Cell")) {
-        (index, repository: Repository, cell) in
-        cell.textLabel?.text = repository.name
-        cell.detailTextLabel?.text = repository.url
-    }
-    .disposed(by: disposeBag)</pre></div></td>
+    <td><div><pre>
+```swift
+        1:
+            SuccessAlert.show(title: "Добавлено")
+        2:
+            SuccessAlert.show(message: "Запись успешно добавлена")
+        3:
+            SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: .white, textColor: .white, blur: .dark)
+        4:
+            SuccessAlert.show(title: "Добавлено", message: "Запись успешно добавлена", color: #colorLiteral(red: 0, green: 0.8379185268, blue: 0.3353787327, alpha: 1), textColor: #colorLiteral(red: 0, green: 0.8379185268, blue: 0.3353787327, alpha: 1))
+        5:
+            SuccessAlert.show()
+        6: 
+            SuccessAlert.show(title: "Удалить не удалось!", view: CrossView())
+        7: 
+            SuccessAlert.show(title: "Удалено", image: UIImage(named: "trash")!, color: #colorLiteral(red: 0.3489781618, green: 0.3490435183, blue: 0.3489740491, alpha: 1)) {
+              self.navigationController?.popToRootViewController(animated: true)
+            }
+```
+</pre></div></td>
   </tr>
 </table>
 
@@ -47,8 +42,6 @@ SuccessAlert doesn't contain any external dependencies.
 These are currently the supported options:
 
 ### Manual
-
-Open SuccessAlert.xcworkspace, choose `RxExample` and hit run. This method will build everything and run the sample app
 
 * Drag `Rx.xcodeproj` into Project Navigator
 * Go to `Project > Targets > General > Embedded Binaries`, click `+` and select `SuccessAlert` target

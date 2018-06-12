@@ -54,7 +54,7 @@ open class SuccessAlert: UIView {
             drawView = view
         }
         let drawAV = drawView as? AnimatedViewProtocol
-        drawAV?.color = color ?? drawAV!.color
+        drawAV?.tintColor = color ?? drawAV!.tintColor
     }
     
     open func drawAnimate(_ block: (() -> ())? = nil) {

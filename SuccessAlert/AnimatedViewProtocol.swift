@@ -9,7 +9,7 @@
 import Foundation
 
 public protocol AnimatedViewProtocol: class where Self: UIView {
-    var color: UIColor {get set}
+    var tintColor: UIColor! {get set}
     func drawAnimation(_: (() -> ())?) -> ()
 }
 
