@@ -17,15 +17,15 @@ open class SuccessAlert: UIView {
     @IBOutlet open var detailLabel: UILabel!
     @IBOutlet private var drawView: UIView!
     @IBOutlet open var stackView: UIStackView!
-    @IBOutlet private var checkWidth: NSLayoutConstraint!
     
     override public init(frame: CGRect) {
         super.init(frame: frame)
         xibSetup()
     }
     
-    public init(frame: CGRect, title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil) {
-        super.init(frame: frame)
+    public init(title: String = "Выполнено", message: String? = nil, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil) {
+        let window = UIApplication.shared.keyWindow ?? UIWindow()
+        super.init(frame: window.bounds)
         xibSetup(title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
     }
     
@@ -68,7 +68,7 @@ extension SuccessAlert {
     
     static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, view: AnimatedView? = nil, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil, completion: (() -> ())? = nil) {
         let window = UIApplication.shared.keyWindow ?? UIWindow()
-        let view = SuccessAlert(frame: window.bounds, title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
+        let view = SuccessAlert(title: title, message: message, view: view, color: color, textColor: textColor, blur: blur)
         window.endEditing(true)
         for subview in window.subviews {
             if subview as? SuccessAlert != nil {
@@ -81,6 +81,18 @@ extension SuccessAlert {
     
     static open func show(title: String = "Выполнено", message: String? = nil, delay: Double = 0.4, image: UIImage, color: UIColor? = nil, textColor: UIColor? = nil, blur: UIBlurEffectStyle? = nil, completion: (() -> ())? = nil) {
         SuccessAlert.show(title: title, message: message, delay: delay, view: UIImageView(image: image.withRenderingMode(.alwaysTemplate)), color: color, textColor: textColor, blur: blur, completion: completion)
+    }
+    
+    open func show(delay: Double = 0.4, completion: (() -> ())? = nil) {
+        let window = UIApplication.shared.keyWindow ?? UIWindow()
+        window.endEditing(true)
+        for subview in window.subviews {
+            if subview as? SuccessAlert != nil {
+                subview.removeFromSuperview()
+            }
+        }
+        window.addSubview(self)
+        appearingAnimation(delay: delay, completion: completion)
     }
     
     fileprivate func appearingAnimation(delay: Double, completion: (() -> ())? = nil) {
@@ -104,5 +116,9 @@ extension SuccessAlert {
             self.removeFromSuperview()
             completion?()
         }
+    }
+    
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(touches)
     }
 }
